@@ -1,0 +1,21 @@
+
+
+.cards {
+    display: flex;
+    gap:10px;
+
+}
+
+.parent-card {
+    width:100%;
+}
+
+@media screen and (max-width:1200px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    /* .parent-card {
+    
+    } */
+}

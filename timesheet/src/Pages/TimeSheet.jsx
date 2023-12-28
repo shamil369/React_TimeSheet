@@ -1,9 +1,36 @@
+import { useState, useContext } from "react";
+import SignIn from './SignIn'
+import userContext from "../Context/UserContext";
+import Table from 'react-bootstrap/Table'
+import NavbarEntryPage from '../Components/NavbarEntryPage'
+import '../Components/Data.css'
+import Popup from '../Components/Popup'
+import Data from '../Components/Data'
+import Sidebar from '../Components/Sidebar';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MyTask from "../Components/MyTask";
+import EntryPageMain from "../Components/EntryPageMain";
 
-function TimeSheet(){
+function TimeSheet() {
 
-    return(
-        <div className="w-25 m-auto mt-5 fs-1">
-            <label>You are logged in</label>
+    
+    
+
+    if (!localStorage.getItem('validToken')) {
+        return <SignIn />
+    }
+
+
+   
+
+    return (
+        <div>
+            
+            {/* <NavbarEntryPage />
+            <Sidebar/> */}
+             <MyTask/>  
+        
+
         </div>
     )
 }

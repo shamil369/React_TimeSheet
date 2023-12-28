@@ -1,0 +1,50 @@
+
+
+
+.admin-alluser-table-container {
+    box-shadow:0px 13px 20px 0px #80808029;
+
+}
+
+
+.MuiTableRow-root * {
+    padding:10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head * {
+    font-weight:bold !important;
+}
+
+.Table td, th {
+    border:none !important;
+}
+
+.Table th, td {
+    border:none !important;
+}
+
+.Table:first-child {
+    border-radius:0.7rem !important;    
+}
+
+.status-active {
+    padding:8px;
+    border-radius:9px;
+    background:rgba(145, 212, 254, 0.5);
+    color:blue;
+}
+
+.approve-button {
+    outline:none;
+    border-radius: 5px;
+    border:none;
+    background:burlywood;
+    cursor: pointer;
+}
+
+/* @media screen and (max-width:1200px) { */
+    /* .admin-alluser-table-container { */
+        /* width:170%;
+        margin-top: 2rem; */
+    /* } */
+/* } */

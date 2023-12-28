@@ -1,0 +1,15 @@
+
+.admin-main-background {
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+
+}
+
+
+
+@media screen and (max-width:1200px) {
+    .admin-main-background {
+        justify-content:flex-start;
+    }
+}

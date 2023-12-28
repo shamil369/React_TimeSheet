@@ -1,0 +1,23 @@
+
+
+.pending-background {
+    background-color: #eec602;
+    padding:25px;
+    margin-top: 50px;
+}
+
+.thead-pending {
+    background-color: #DAD4B5;
+    font-size: larger;
+    height:6vh;
+}
+
+.tbody-pending {
+    background-color: #F2E8C6;
+    font-size: large;
+
+}
+
+.pd {
+    padding: 10px;
+}

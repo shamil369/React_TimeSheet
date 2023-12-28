@@ -1,0 +1,25 @@
+
+
+
+
+.active-background {
+    background-color:#F9E8D9;
+    padding:25px;
+    margin-top: 50px;
+}
+
+.thead-active {
+    background-color:#9BBEC8;
+    font-size: larger;
+    height:6vh;
+}
+
+.tbody-active {
+    background-color: #DDF2FD;
+    font-size: large;
+
+}
+
+.pd {
+    padding: 10px;
+}

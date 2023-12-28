@@ -1,0 +1,32 @@
+
+
+.admin-panel-background {
+    background-image: linear-gradient(106.38deg, rgba(238, 117, 117, 0.8), rgba(181, 81, 81, 0.8), rgba(236, 163, 163, 0.8));
+    height:100vh;
+    display :flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.admin-panel-glass {
+    display: grid;
+    height:97%;
+    width:97%;
+    border-radius: 2rem;
+    background-color: rgba(255,255,255,0.54);
+    overflow: hidden;
+    grid-template-columns: 11rem auto 3rem;
+    gap:10px;
+}
+
+@media screen and (max-width:1200px) {
+    .admin-panel-glass {
+        grid-template-columns:10% 80% auto;
+        overflow-y:hidden;
+         
+    }
+    .admin-panel-background {
+        height: 150vh;
+    }
+}

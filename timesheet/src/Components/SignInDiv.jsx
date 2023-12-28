@@ -1,13 +1,15 @@
 import './SignInDiv.css'
 import {Link,useNavigate} from 'react-router-dom'
-import {useState} from 'react';
+import {useState,useContext} from 'react';
 import axios from 'axios';
+import userContext from '../Context/UserContext';
 
 
 function SignInDiv(){
 
     const [emailLogin,setEmailLogin] = useState('');
     const [passwordLogin,setPasswordLogin] = useState('');
+    let {nowLoggedIn,setNowLoggedIn} = useContext(userContext)
 
     const navigate = useNavigate();
 
@@ -18,7 +20,17 @@ function SignInDiv(){
         await axios.post('http://localhost:5000/login',login,{withCredentials:true}).then((res)=>{
             console.log("login response",res.data) 
             if(res.data.email===login.email){
+                console.log("tokenvalue:",res.data.tokenUser)
+            
+                localStorage.setItem("validToken",JSON.stringify(res.data.tokenUser))
+                setNowLoggedIn(res.data.email)
                 navigate('/timepage')
+            }else if(res.data.name===login.email){
+                console.log("tokenvalue admin:",res.data.tokenadmin)
+            
+                localStorage.setItem("validTokenadmin",JSON.stringify(res.data.tokenadmin))
+                setNowLoggedIn(res.data.name)
+                navigate('/admin')
             }else{
                 console.log("not matched")
             }

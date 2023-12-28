@@ -1,0 +1,25 @@
+
+
+
+
+.completed-background {
+    background-color:#F9E8D9;
+    padding:25px;
+    margin-top: 50px;
+}
+
+.thead-completed {
+    background-color:#5C8374;
+    font-size: larger;
+    height:6vh;
+}
+
+.tbody-completed {
+    background-color: #9EC8B9;
+    font-size: large;
+
+}
+
+.pd {
+    padding: 10px;
+}
