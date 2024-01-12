@@ -26,11 +26,11 @@ app.use((req,res,next)=>{
     console.log("first middle")
     console.log("time:",Date.now())
     Task.find().then((userData)=>{
-        // console.log("miidleware all task document:",userData);
+        console.log("miidleware all task document:",userData);
         userData.map((obj)=>{
             let currentDate = Date.now();
             let deadlineDate = new Date(obj.deadline)
-            if (currentDate > deadlineDate && !obj.status==="Requested" && !obj.status==="Completed" ){
+            if (currentDate > deadlineDate && obj.status==="Active" ){
                 let objID = obj._id;
                 Task.findByIdAndUpdate({_id:objID},{$set:{status:"pending"}}).then((updatedPendingData)=>{
                     console.log("updated pending status:",updatedPendingData)
@@ -281,6 +281,18 @@ app.post("/adminAllUsers",(req,res)=>{
         res.send(userData)
     }).catch((err)=>{
         console.log("admin all user error",err)
+    })
+})
+
+app.post("/deleteUser",(req,res)=>{
+    console.log("delete id from backend",req.body.id);
+    const id = req.body.id;
+    User.findByIdAndDelete({_id:id}).then((deleteData)=>{
+        console.log("deleted userdata from backend",deleteData)
+        res.send(deleteData)
+    }).catch((err)=>{
+        console.log("deleteUSer error backend")
+        res.send("deleteUser error occured")
     })
 })
 

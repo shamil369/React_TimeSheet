@@ -1,0 +1,86 @@
+
+
+.newuser-popup-background{
+    position:absolute;
+    width:100%;
+    height:160vh;
+    left:0;
+    bottom:0;
+    top:0;
+    background: rgba(57, 57, 57, 0.7);
+    z-index:78;
+    display: grid;
+    grid-template-rows: 65% auto 20%;
+    /* justify-content: flex-start; */
+
+
+}
+
+.newuser-popup {
+    /* max-width:50%;
+    margin:auto; */
+    width:27%;
+    margin:auto;
+    background: rgb(220, 219, 219);
+    height:45vh;
+    display:flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content:space-around ;
+    padding:25px;
+    border-radius:7px;
+    box-shadow: 1px 1px 2px 1px rgb(223, 222, 222);
+
+}
+
+.newuser-firstname-div {
+    /* background-color: aqua; */
+    display:flex;
+    justify-content: space-between;
+    /* padding:0px 50px 0px 50px; */
+}
+
+.newuser-lastname-div {
+    /* background-color: aquamarine; */
+    display:flex;
+    justify-content: space-between;
+    /* padding:0px 50px 0px 50px; */
+}
+
+.newuser-email-div {
+    /* background-color: aquamarine; */
+    display:flex;
+    justify-content: space-between;
+    /* padding:0px 50px 0px 50px; */
+}
+
+.newuser-password-div {
+    /* background-color: aquamarine; */
+    display:flex;
+    justify-content: space-between;
+    /* padding:0px 50px 0px 50px; */
+}
+
+.newuser-input{
+    border-radius:7px;
+    height:4vh;
+    width:230px;
+    padding:2px;
+    border:none;
+    background: rgb(251, 251, 251);
+    outline-color: rgb(122, 214, 231); 
+    font-size: large;
+}
+
+.newuser-adduser-button {
+    border-radius:5px;
+    border:none;
+    padding:2px 7px 2px 6px;
+    font-size: larger;
+    color:white;
+    background:rgb(24, 216, 18); 
+}
+
+.newuser-adduser-button:hover {
+    box-shadow:0px 0px 5px 1px rgba(78, 78, 78, 0.591);
+}

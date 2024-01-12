@@ -45,7 +45,7 @@ function PendingTask(){
                     <th>Start Date</th>
                     <th>Deadline</th>
                     <th>Status</th>
-                    <th>Approval</th>
+                    
         
                 </thead>
                 <tbody className="tbody-pending">
@@ -53,6 +53,7 @@ function PendingTask(){
 
                     return (
                         <>
+                        <tr>
                     <td className="pd"></td>
                     <td className="pd">{obj.name? obj.name : ""}</td>
                     <td className="pd">{obj.project? obj.project : ""}</td>
@@ -60,7 +61,8 @@ function PendingTask(){
                     <td className="pd">{obj.startdate? obj.startdate : ""}</td>
                     <td className="pd">{obj.deadline? obj.deadline : ""}</td>
                     <td className="pd">{obj.status? obj.status : ""}</td>
-                    <td className="pd"></td>
+                    
+                    </tr>
                     </>
                     )
                 })

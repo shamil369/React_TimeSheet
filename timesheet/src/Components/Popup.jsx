@@ -13,7 +13,7 @@ export default function Popup({setPopClick}){
     let [deadline,setDeadline]=useState();
 
 
-    async function addTask(){
+     function addTask(){
 
 
       const tokenvalue =  localStorage.getItem("validToken")
@@ -29,10 +29,10 @@ export default function Popup({setPopClick}){
             
         }
 
-       await axios.post('http://localhost:5000/addTask',addTaskData,{withCredentials:true}).then((res)=>{
+        axios.post('http://localhost:5000/addTask',addTaskData,{withCredentials:true}).then((res)=>{
             console.log("addtaskdata response:",res.data);
             setPopClick(false)
-            setTimeout(()=>setPopClick(false),3000)
+            setTimeout(()=>setPopClick(false),2000)
         })
         
 

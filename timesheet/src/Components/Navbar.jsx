@@ -16,11 +16,11 @@ function Navbar(){
                 </Link>
             </div>
             <div className="navbar-signin-signup">
-               { nowLoggedIn ? <label>{nowLoggedIn}</label> : 
+            
               <div> <Link className="navbar-signin" to="/signin">Sign In </Link>
                 <Link className="navbar-signup" to="/signup">Sign Up </Link>
              </div>
-               }
+               
                 
             </div>
         </div>

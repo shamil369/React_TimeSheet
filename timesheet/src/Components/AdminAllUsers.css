@@ -42,6 +42,31 @@
     cursor: pointer;
 }
 
+.delete-change:hover {
+ cursor:pointer;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.new-user-button {
+    outline:none;
+    border-radius: 5px;
+    border:none;
+    color:white;
+    padding: 2px 6px 2px 4px; 
+    font-size: larger;
+    background:rgb(46, 147, 170);
+    cursor: pointer;
+    transition:all ease-out 0.1s
+}
+
+.new-user-button:hover {
+    box-shadow: 1px 1px 10px 1px rgb(188, 187, 187);
+    transform:scale(1.05)
+}
+
 /* @media screen and (max-width:1200px) { */
     /* .admin-alluser-table-container { */
         /* width:170%;

@@ -4,6 +4,39 @@
 }
 
 .banner-img {
-    width:100%;
+    width:50%;
     height:70vmin;
+}
+
+.banner-img-background {
+    background: rgb(167, 166, 166);
+}
+
+.transform-heading {
+    transform:translate(31%,-150%);
+    color:rgb(221, 48, 48);
+}
+.red {
+    color:red;
+}
+
+.width-para {
+    max-width:300px;
+    margin:auto;
+}
+
+.font-size-2 {
+    font-size: xx-large;
+}
+
+.lightblue {
+    background:  #EEF5FF;
+}
+
+.blueshade{
+    color:#176B87;
+}
+
+.fsize{
+    font-size: 50px;
 }

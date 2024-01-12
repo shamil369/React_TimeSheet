@@ -80,17 +80,17 @@ function Data({setPopClick,popClick}){
                         <th>Start Date</th>
                         <th>Deadline</th>
                         <th>Status</th>
-                        <th>Operation</th>
+                        <th></th>
                         <th></th>
                     </thead>
             {
                 dataFromDB &&  dataFromDB.map((obj,index)=>{
 
                         let date = new Date(obj.deadline);
-                        let dead =date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
+                        let dead =date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear()
 
                         let start = new Date(obj.startdate);
-                        let startdate = start.getDate() + "-" + start.getMonth() + "-" + start.getFullYear()
+                        let startdate = start.getDate() + "-" + (start.getMonth()+1) + "-" + start.getFullYear()
 
                         return(
                                 <thead className="details-head" key={index}>

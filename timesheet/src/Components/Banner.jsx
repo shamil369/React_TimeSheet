@@ -6,26 +6,33 @@ function Banner() {
     return(
             <Carousel>
               <Carousel.Item>
-              
-                <img className='banner-img' src="https://th.bing.com/th/id/OIP.x3eECjK9YvC1cqp9XWH5wQHaDS?rs=1&pid=ImgDetMain"  ></img>
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+             <div className="banner-img-background">
+
+                <img className='banner-img' src="/bannerTime.svg"  ></img>
+              </div> 
+                <Carousel.Caption className="transform-heading">
+                  <h1 className="red fsize">Time Management</h1>
+                  <p className="red width-para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquam ut dolore odit hic ullam tempore harum id.</p>
+                 
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-               
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div className="banner-img-background">
+                <img className='banner-img' src="/bannerTime.svg"  ></img>
+                </div> 
+                <Carousel.Caption className="transform-heading" >
+                  <h3 className="fsize">Best Way To Manage Your Task</h3>
+                  <p className="width-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat tempora minus accusamus. Quia tempora fuga officiis reiciendis, sint debitis dicta!</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-               
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              <div className="lightblue">
+                <img className='banner-img' src="/planningBanner.svg"  ></img>
+                </div> 
+                <Carousel.Caption className="transform-heading">
+                  <h1 className="blueshade fsize">Planning Your Task</h1>
+                  <p className="width-para blueshade">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi beatae vel odio. Doloremque, dolores. Praesentium beatae ratione saepe.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>

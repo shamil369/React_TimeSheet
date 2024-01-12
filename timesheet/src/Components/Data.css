@@ -1,6 +1,6 @@
 
 .details-head {
-    background-color: red;
+    background-color: rgba(238, 184, 24, 0.381);
     height:7vh;
     padding-left: 10px;
     text-align: center;
@@ -26,7 +26,7 @@ padding-top: 1px;
 .details-head img {
     width:50px;
     height:50px;
-    background-color:cadetblue;
+    background-color: rgba(238, 184, 24, 0.381);
     cursor:pointer;
 }
 
@@ -58,4 +58,9 @@ padding-top: 1px;
     color: darkcyan;
     background-image: linear-gradient(180deg,rgba(108, 236, 151, 0.552),rgba(82, 219, 100, 0.675));
     cursor:pointer;
+}
+
+.button-request:hover {
+    transform: scale(1.1);
+    box-shadow:1px 1px 10px 1px rgb(208, 208, 208);
 }

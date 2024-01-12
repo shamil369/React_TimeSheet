@@ -46,7 +46,6 @@ function CompletedTask(){
                     <th>Start Date</th>
                     <th>Deadline</th>
                     <th>Status</th>
-                    <th>Approval</th>
         
                 </thead>
                 <tbody className="tbody-completed">
@@ -61,7 +60,7 @@ function CompletedTask(){
                     <td className="pd">{obj.startdate? obj.startdate : ""}</td>
                     <td className="pd">{obj.deadline? obj.deadline : ""}</td>
                     <td className="pd">{obj.status? obj.status : ""}</td>
-                    <td className="pd"></td>
+            
                     </>
                     )
                 })
