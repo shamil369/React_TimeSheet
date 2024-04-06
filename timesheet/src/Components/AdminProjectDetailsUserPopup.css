@@ -1,0 +1,26 @@
+
+
+
+.give-access-button{
+    border-radius:5px;
+    border:outline;
+    background: rgb(18, 131, 18);
+    color:white;
+
+}
+
+.assign-user-display {
+    display:flex;
+    justify-content: space-around;
+}
+
+.width-select {
+ width:350px;
+}
+
+.give-access-table {
+    width:100%;
+    background: rgb(139, 139, 139);
+    overflow: scroll;
+    height:30vh;
+}

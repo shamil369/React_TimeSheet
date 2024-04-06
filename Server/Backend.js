@@ -9,6 +9,8 @@ import jwt from 'jsonwebtoken';
 // const serve = require('serve-index')
 import Task from './models/Task.js'
 import Admin from './models/Admin.js'
+import Project from './models/Project.js';
+import UserSubTask from './models/UserSubTask.js';
 
 const secret = "secret123"
 const secrettwo = "secret456"
@@ -24,9 +26,9 @@ db.on('error',(error)=>console.log("DB not okay"))
 
 app.use((req,res,next)=>{
     console.log("first middle")
-    console.log("time:",Date.now())
+    // console.log("time:",Date.now())
     Task.find().then((userData)=>{
-        console.log("miidleware all task document:",userData);
+        // console.log("miidleware all task document:",userData);
         userData.map((obj)=>{
             let currentDate = Date.now();
             let deadlineDate = new Date(obj.deadline)
@@ -296,4 +298,171 @@ app.post("/deleteUser",(req,res)=>{
     })
 })
 
+app.post("/createProject",(req,res)=>{
+    console.log("create backend received",req.body)
+    const projectData= req.body;
+    const project = new Project({projectName:projectData.projectName,description:projectData.description,startDate:projectData.startDate,endDate:projectData.endDate,subTask:projectData.subTask})
+    project.save().then((savedprojectData)=>{
+      
+        res.send(savedprojectData)
+
+    }).catch((err)=>{
+        console.log("create project save to db error,",err)
+        res.send("saee",err)
+    })
+})
+
+app.post("/getProject",(req,res)=>{
+        console.log("getproject token",req.body.tokenjson)
+    // const jwtToken = jwt.verify(req.body.tokenjson,secrettwo);
+    // console.log("verified token request approval:",jwtToken)
+    // let email = jwtToken.email
+    Project.find().then((projectData)=>{
+        console.log("get project data found",projectData)
+        res.send(projectData)
+    }).catch((err)=>{
+        console.log("error in get project",err)
+    })
+})
+
+app.post("/userSubTask",(req,res)=>{
+    console.log("userSubTask req data",req.body)
+    const usersAllocated = req.body.userAllocated;
+    const taskId = req.body.taskId;
+    const projectDetails = req.body.projectDetail
+    let array = []
+        usersAllocated.map((obj,index)=>{
+          let usersub =  new UserSubTask({userdata:obj,projectdetail:projectDetails._id,idofsubtask:taskId,timespend:[]});
+          console.log(`usersub value ${index}`,usersub)
+
+          UserSubTask.find({projectdetail:projectDetails._id,idofsubtask:taskId,"userdata.email":obj.email}).then((userSubTaskData)=>{
+            console.log("finded the projec youare looking:",userSubTaskData)
+            if(userSubTaskData.length===0){
+                usersub.save().then((savedUserSub)=>{
+                    console.log(`usersub saved data${index}`,savedUserSub)
+                    array.push(savedUserSub)
+                }).catch((err)=>{
+                    console.log("userSubTask saving to db error",err)
+                    res.send(`errorin usersubtask: ${err}`)
+                })
+            }
+        }).catch((err)=>{
+            res.send(`error from db userSubTask  cheking user is exist: ${err}`)
+        })
+
+       
+    })
+    res.send(array)
+
+        
+})
+
+app.post("/getuserSubTask",(req,res)=>{
+     // const jwtToken = jwt.verify(req.body.tokenjson,secrettwo);
+    // console.log("verified token request approval:",jwtToken)
+    // let email = jwtToken.email
+    UserSubTask.find().then((userSubTaskData)=>{
+        res.send(userSubTaskData)
+    }).catch((err)=>{
+        res.send(`error from db getuserSubTask: ${err}`)
+    })
+})
+
+app.post("/deleteUserSubTask",(req,res)=>{
+    const subtaskId= req.body.subtaskId
+    const deleteUsersarray = req.body.deleteUsers
+    const projectId = req.body.projectDatas._id
+    console.log("deleteusersubtask",deleteUsersarray)
+    deleteUsersarray.map((obj)=>{
+
+            const uemail = obj.email
+
+        UserSubTask.find({"userdata.email":uemail}).then((usersubtaskData)=>{
+         console.log("data needed to deletefdddgsdgdsgdg",usersubtaskData)
+         usersubtaskData.map((obj)=>{
+            if(obj.idofsubtask===subtaskId && obj.userdata.email===uemail && obj.projectdetail===projectId){
+            UserSubTask.findByIdAndDelete({_id:obj._id}).then((deleteData)=>{
+                console.log("data deleted for subtask",deleteData)
+
+            })
+            }
+         })
+
+       })
+    })
+})
+
+app.post("/updateProjectData",(req,res)=>{
+    console.log("update project daatat",req.body )
+    console.log("subarray assdded",req.body.subtaskarray)
+    Project.findByIdAndUpdate({_id:req.body.projectId},{$set:{projectName:req.body.projectName,
+        description:req.body.description,startDate:req.body.startdate,endDate:req.body.enddate,
+        subTask:req.body.subtaskarray}}).then((updatedData)=>{
+            // res.send(updatedData)
+            console.log("updated DAta updateprojectData",updatedData)
+        }).catch(err=>{
+            console.log("error in updateProjectData",err)
+        })
+    
+})
+
+app.delete("/deleteProject/:id",(req,res)=>{
+    console.log("deleteProject ID",req.params.id);
+    const id = req.params.id
+    UserSubTask.deleteMany({projectdetail:id}).then(deleteduserperProject=>{
+        console.log("deleted userSubtask",deleteduserperProject)
+        Project.findByIdAndDelete({_id:id}).then(projectDatadeleted=>{
+            console.log("projectDAta deleted",projectDatadeleted);
+            res.send("ProjectData and userSubtask deleted successfuly")
+        }).catch(err=>{console.log("project Data deleted error",err)})
+    }).catch(err=>console.log("error in delete usersubtask",err))
+})
+ let trigger = false
+app.post("/SubTaskPerUser",(req,res)=>{
+    const jwtToken = jwt.verify(req.body.tokenjson,secret);
+   console.log("verified token request approval:",jwtToken)
+   let email = jwtToken.email
+    trigger = !trigger;
+
+   const response= UserSubTask.find({"userdata.email":email})
+   console.log("respomse sssssssss",response)
+    
+    if(trigger){
+        console.log("trigger 1")
+        let array=[] 
+   UserSubTask.find({"userdata.email":email}).then((userSubTaskData)=>{
+    
+   //  console.log("usersubtask /user find",userSubTaskData)
+    
+    userSubTaskData.map((obj,index)=>{
+        // console.log(`indexxxxxxxx===${index}=====`,obj)
+     Project.find({_id:obj.projectdetail}).then((projectData)=>{
+             // console.log(`project Data <>${index}`,projectData)
+            //  array.push(projectData[0])
+        //    res.send(projectData)
+            array.push(projectData[0])
+        }).catch((err)=>{
+            console.log("error in get project",err)
+        })
+
+    }) 
+    
+    setTimeout(()=>{console.log("value arra",array)
+            res.send(array)
+        },3000) 
+    
+   }).catch((err)=>{
+      // res.send(`error from db getuserSubTask/user: ${err}`)
+      console.log("usersubtask /user find error",err)
+   })
+  
+}else{
+    console.log("trigger 2")
+}
+  
+})
+
+
 app.listen(5000,()=>console.log("server is listening to the port"));
+
+// const userSubTask = new UserSubTask({nameofproject:projectData.projectName,nameofsubtask:})

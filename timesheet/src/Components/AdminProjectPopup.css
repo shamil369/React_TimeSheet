@@ -1,0 +1,177 @@
+
+
+
+.create-project-popup-background {
+    position:absolute;
+    top:0;
+    bottom:-70px;
+    left:0;
+    right:0;
+    z-index:89;
+    background:rgba(14, 14, 14, 0.416);
+    display:flex;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.create-project-popup {
+    max-width:75%;
+    background: rgb(220, 220, 220);
+    height:max-content;
+    padding: 35px 10px 35px 10px;
+}
+
+.create-project-add {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    
+    
+}
+
+.label-input {
+     background:rgb(255, 0, 72);
+     height:max-content;
+     width:max-content;
+     margin:2px;
+     
+}
+
+
+.label-input-subtask {
+    background:rgb(255, 0, 72);
+    height:max-content;
+    width:100%;
+    margin:2px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.input-add {
+    outline-color:rgb(92, 198, 233);
+    border: none;
+    height:4vh;
+    border-radius:5px;
+    font-size:large;
+    padding:2px;
+}
+
+.input-addsub {
+    outline-color:rgb(92, 198, 233);
+    border: none;
+    height:4vh;
+    width:350px;
+    border-radius:5px;
+    font-size:large;
+    padding:2px;
+}
+
+.add-subtask-button {
+    background: rgb(0, 136, 255);
+    padding:3px 8px 4px 6px;
+    border: none;
+    border-radius:5px;
+    color:white;
+    font-size: large;
+    margin:15px 20px 0px 0px;
+}
+.add-subtask-button:hover {
+    transform: scale(1.05);
+}
+
+.subtask-data {
+width:100%;
+height:20vh;
+background: white;
+overflow-y: scroll;
+}
+
+.check-box{
+    accent-color: #0d84ec;
+    transform: scale(0.7);
+}
+
+.ds-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* background: yellow; */
+
+}
+
+.width-value {
+    width:550px;
+}
+
+.create-project-submit-button {
+    border:none;
+    padding:3px 7px 3px 6px;
+    border-radius:5px;
+    color:white;
+    background: rgb(13, 179, 13);
+    margin:10px 5px 5px 1px;
+}
+
+.create-project-submit-button:hover {
+    background: rgb(5, 104, 5);
+    box-shadow: 1px 1px 5px 1px rgba(71, 71, 71, 0.359);
+}
+
+
+@media screen and (max-width:1400px){
+    .create-project-add{
+        display:grid;
+        grid-template-columns: auto auto;
+    }
+
+    .create-project-popup {
+        max-width:75%;
+        background: rgb(220, 220, 220);
+        height:max-content;
+       
+    
+        padding: 35px 10px 35px 10px;
+    }
+}
+
+@media screen and (max-width:900px){
+
+    .create-project-add{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .create-project-popup {
+        max-width:75%;
+        background: rgb(220, 220, 220);
+        height:max-content;
+       
+    
+        padding: 35px 10px 35px 10px;
+    }
+
+    .create-project-popup-background {
+        position:absolute;
+        top:0;
+        bottom:-58vh;
+        left:0;
+        right:0;
+        z-index:89;
+        background:rgba(14, 14, 14, 0.416);
+        display:flex;
+        justify-content:center;
+        align-items: center;
+    
+    }
+    .input-addsub {
+        outline-color:rgb(92, 198, 233);
+        border: none;
+        height:4vh;
+        width:230px;
+        border-radius:5px;
+        font-size:medium;
+        padding:2px;
+    }
+}

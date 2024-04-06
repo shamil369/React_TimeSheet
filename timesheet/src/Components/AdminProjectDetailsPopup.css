@@ -1,0 +1,68 @@
+
+.details-popup-background {
+    position:absolute;
+    top:0;
+    bottom:-70px;
+    left:0;
+    right:0;
+    z-index:89;
+    background:rgba(14, 14, 14, 0.416);
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.details-content {
+    width:900px;
+    background: rgb(220, 220, 220);
+    height:max-content;
+    padding: 35px 10px 35px 10px;
+}
+
+.details-content-subtasklist {
+    width:100%;
+    padding: 6px;
+    background: rgb(97, 151, 165);
+}
+
+.white {
+    color:white;
+}
+
+.text-align-left {
+    text-align: start;
+}
+
+.div-max-width {
+    max-width: 350px;
+    margin:auto;
+}
+
+.give-access-button{
+    border-radius:5px;
+    border:outline;
+    background: rgb(18, 131, 18);
+    color:white;
+
+}
+
+.assign-user-display {
+    display:flex;
+    justify-content: space-around;
+}
+
+.width-select {
+ width:350px;
+}
+
+.give-access-table {
+    width:100%;
+    background: rgb(139, 139, 139);
+    overflow: scroll;
+    height:30vh;
+}
+
+.user-given {
+    width:200px;
+    text-align: justify;
+}

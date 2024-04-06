@@ -20,6 +20,7 @@ function Sidebar(){
                 <div><Link to="/timepage/active"><img onClick={()=>setSelectSidebarImage("active")} src="/task.png" className={ selectSidebarImage==="active" ? "sidebar-img-select" : "width-sidebar-img" }/></Link></div>
                 <div><Link to="/timepage/pending"><img onClick={()=>setSelectSidebarImage("pending")} src="/pendingTask.png" className= { selectSidebarImage==="pending" ? "sidebar-img-select" :  "width-sidebar-img" } /></Link></div>
                 <div><Link to="/timepage/completed"><img onClick={()=>setSelectSidebarImage("completed")} src="/completedTask.png" className= { selectSidebarImage==="completed" ? "sidebar-img-select-sm" :  "width-sidebar-img-sm" } /></Link></div>
+                <div><Link to="/timepage/myProjects"><img onClick={()=>setSelectSidebarImage("myProjects")} src="/completedTask.png" className= { selectSidebarImage==="completed" ? "sidebar-img-select-sm" :  "width-sidebar-img-sm" } /></Link></div>
             </div>
             <div className={selectSidebarMenu? "sidebar" : "sidebar-none"}>
                 <div><label className="width-sidebar-label-top">My Task</label></div>
@@ -27,6 +28,7 @@ function Sidebar(){
                 <div><Link className="text-decor" to="/timepage/active"><label onClick={()=>setSelectSidebarImage("active")} className={ selectSidebarImage==="active" ? "width-sidebar-label-selected" : "width-sidebar-label"} >Active Task</label></Link></div>
                 <div><Link className="text-decor" to="/timepage/pending"><label onClick={()=>setSelectSidebarImage("pending")} className={ selectSidebarImage==="pending" ? "width-sidebar-label-selected" : "width-sidebar-label"} >Pending Task</label></Link></div>
                 <div><Link className="text-decor" to="/timepage/completed"><label onClick={()=>setSelectSidebarImage("completed")} className= { selectSidebarImage==="completed" ? "width-sidebar-label-selected" : "width-sidebar-label" } >Completed Task</label></Link></div>
+                <div><Link className="text-decor" to="/timepage/myProjects"><label onClick={()=>setSelectSidebarImage("myProjects")} className= { selectSidebarImage==="completed" ? "width-sidebar-label-selected" : "width-sidebar-label" } ></label></Link></div>
             </div>
         </div>
         <div className='sidebar-pages'>

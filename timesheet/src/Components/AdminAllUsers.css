@@ -67,6 +67,23 @@
     transform:scale(1.05)
 }
 
+.assign-task-button {
+    outline:none;
+    color:white;
+    background:rgb(2, 196, 2);
+    padding:4px 6px 3px 7px;
+    font-size: medium;
+    border:none;
+    border-radius:5px;
+    margin-left:8px;
+
+}
+
+.assign-task-button:hover {
+    transform:scale(1.05);
+    background:rgb(2, 151, 2);
+}
+
 /* @media screen and (max-width:1200px) { */
     /* .admin-alluser-table-container { */
         /* width:170%;

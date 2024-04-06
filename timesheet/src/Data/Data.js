@@ -1,4 +1,4 @@
-import {UilEstate,UilCheckCircle,UilProcess,UilUsersAlt,UilFileEditAlt,UilPackage,UilChart,UilSignOutAlt,UilUsdSquare} from '@iconscout/react-unicons'
+import {UilEstate,UilCheckCircle,UilProcess,UilUsersAlt,UilFileEditAlt,UilFilePlusAlt,UilPackage,UilChart,UilSignOutAlt,UilUsdSquare} from '@iconscout/react-unicons'
 
 
 export const sidebarData = [
@@ -6,6 +6,11 @@ export const sidebarData = [
         icon:UilEstate,
         heading:"Dashboard",
         path:"/admin/"
+    },
+    {
+        icon:UilFilePlusAlt,
+        heading:"My Projects",
+        path:"/admin/project"
     },
     {
         icon:UilCheckCircle,

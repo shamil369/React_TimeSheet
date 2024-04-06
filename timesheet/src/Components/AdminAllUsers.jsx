@@ -80,13 +80,12 @@ function AdminAllUsers() {
           <TableCell component="th" scope="row">{row.firstname}</TableCell>
           <TableCell align="left">{row.lastname}</TableCell>
           <TableCell align="left">{row.email}</TableCell>
-          <TableCell align="left">{deleteIcon ===row._id ?<img onClick={()=>{deleteUser(row._id)}}  onMouseLeave={()=>setDeleteIcon(false)} className="delete-change" src="/deletegif.gif" alt="Delete icon" width="40" height="40" />:<img onMouseEnter={()=>setDeleteIcon(row._id)} className="delete-change" src="/deletenogif.svg" alt="Delete icon" width="40" height="40"/> }</TableCell>
+          <TableCell align="left">{deleteIcon ===row._id ?<img onClick={()=>{deleteUser(row._id)}}  onMouseLeave={()=>setDeleteIcon(false)} className="delete-change" src="/deletegif.gif" alt="Delete icon" width="40" height="40" />:<img onMouseEnter={()=>setDeleteIcon(row._id)} className="delete-change" src="/deletenogif.svg" alt="Delete icon" width="40" height="40"/> } <button className="assign-task-button">Assign Task</button></TableCell>
         </TableRow>
       ))}
     </TableBody>
   </Table>
 </TableContainer>
-
 </div>
   )
 }

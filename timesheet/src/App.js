@@ -13,6 +13,7 @@ import ActiveTaskPage from "./Pages/ActiveTaskPage";
 import AdminPage from './Pages/AdminPage'
 import AdminEdit from "./Components/AdminEdit";
 import AdminMain from "./Components/AdminMain";
+import MyProjectsPage from "./Pages/MyProjectsPage";
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
     <Route  path="/timepage/active" Component={ActiveTaskPage} />
     <Route  path="/timepage/pending" Component={PendingTaskPage} />
     <Route  path="/timepage/completed" Component={CompletedTaskPage} />
+    <Route  path="/timepage/myProjects" Component={MyProjectsPage} />
     <Route  path="/admin/*" Component={AdminPage} >
       <Route path="edit" Component={AdminEdit}/>
       <Route path="" Component={AdminMain}/>

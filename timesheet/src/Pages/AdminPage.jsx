@@ -8,6 +8,7 @@ import AdminPendingTask from "../Components/AdminPendingTask"
 import AdminActiveTask from "../Components/AdminActiveTask"
 import SignIn from './SignIn'
 import AdminAllUsers from "../Components/AdminAllUsers"
+import AdminProjects from "../Components/AdminProjects"
 
 function AdminPage(){
 
@@ -29,6 +30,7 @@ function AdminPage(){
                     <Route path="pending" Component={AdminPendingTask}/>
                     <Route path="activ" Component={AdminActiveTask}/>
                     <Route path="users" Component={AdminAllUsers}/>
+                    <Route path="project" Component={AdminProjects}/>
                 </Routes>
             </AdminPanel>
 

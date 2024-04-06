@@ -30,9 +30,9 @@ function NavbarEntryPage(){
             tokenjson:tokenjson
         }
         axios.post("http://localhost:5000/whichUser",token,{withCredentials:true}).then((res)=>{
-            console.log("whichUser:",res)
+           console.log("whichUser:",res)
 
-            setUser(res.data.userEmail)
+           setUser(res.data.userEmail)
         })
     },[])
 

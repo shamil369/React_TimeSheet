@@ -1,0 +1,35 @@
+
+.admin-project-delete-popup-background {
+position:absolute;
+top:0;
+bottom:-70px;
+left:0;
+right:0;
+z-index:89;
+background:rgba(14, 14, 14, 0.416);
+display:flex;
+justify-content:center;
+align-items: center;
+}
+
+.admin-project-delete-popup {
+    width:600px;
+    background: rgb(220, 220, 220);
+    height:25vh;
+    padding: 35px 10px 35px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size:x-large;
+    
+}
+
+.admin-project-delete-popup-label-button {
+    
+}
+
+.admin-project-delete-popup-buttons {
+    display:flex;
+    justify-content:center;
+}

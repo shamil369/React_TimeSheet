@@ -1,0 +1,66 @@
+.create-project {
+    background:rgb(206, 205, 205);
+    max-width:1000px;
+    margin:auto;
+    height:30vh;
+    border-radius: 5px;
+}
+
+
+.create-project-with-data {
+    background:rgb(206, 205, 205);
+    max-width:1000px;
+    margin:auto;
+    height:5vh;
+    border-radius: 5px;
+}
+
+
+.create-project-button-background {
+    text-align: end;
+    padding:8px;
+    background-color: rgb(232, 245, 245);
+    border-top-left-radius:5px ;
+    border-top-right-radius:5px ;
+}
+
+.create-project-button {
+    outline:none;
+    border:none;
+    padding:3px 7px 3px 6px;
+    background:rgb(5, 131, 235);
+    border-radius:5px;
+    font-size: larger;
+    color:white;
+
+}
+
+.create-project-button:hover {
+    transform: scale(1.1);
+}
+
+.see-details-button {
+    border-radius: 5px;
+    border: none;
+    margin-left:5px;
+    background: rgb(3, 54, 74);
+    color:white;
+}
+
+.edit-details-button {
+    border-radius: 5px;
+    border: none;
+    margin-left:5px;
+    background: rgb(6, 61, 45);
+    color:white;
+}
+
+.delete-details-button {
+    border-radius: 5px;
+    border: none;
+    margin-left:5px;
+    background: rgb(61, 6, 7);
+    color:white;
+}
+
+/* margin:0px 10px 0px 10px; */

@@ -1,0 +1,43 @@
+
+.admin-project-edit-popup-background {
+    position:absolute;
+    top:0;
+    bottom:-70px;
+    left:0;
+    right:0;
+    z-index:89;
+    background:rgba(14, 14, 14, 0.416);
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.admin-project-edit-popup {
+    width:1100px;
+    background: rgb(220, 220, 220);
+    height:max-content;
+    padding: 35px 10px 35px 10px;
+}
+
+.admin-project-edit {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    height: max-content;
+
+
+}
+
+.label-box-input {
+    display:flex;
+    /* background: yellow; */
+    width:350px;
+    justify-content: space-between;
+}
+
+.box-input {
+    padding: 5px;
+    border-radius:8px;
+    font-size: large;
+    border:none;
+}
