@@ -22,7 +22,13 @@ function MyprojectsUser() {
   
     axios.post("http://localhost:5000/SubTaskPerUser",token,{withCredentials:true}).then(res=>{
       console.log("myprojectuser ",res.data)
-      setProjectArray(res.data)
+      if(res.data.length>0){
+        setProjectArray(res.data.filter((value,index,self)=>{
+          return index===self.findIndex((t)=>t._id===value._id)
+        }))
+
+      
+      }
     })
 
   },[])

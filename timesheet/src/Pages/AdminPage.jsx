@@ -9,6 +9,7 @@ import AdminActiveTask from "../Components/AdminActiveTask"
 import SignIn from './SignIn'
 import AdminAllUsers from "../Components/AdminAllUsers"
 import AdminProjects from "../Components/AdminProjects"
+import AdminTotalTime from "../Components/AdminTotalTime"
 
 function AdminPage(){
 
@@ -31,6 +32,7 @@ function AdminPage(){
                     <Route path="activ" Component={AdminActiveTask}/>
                     <Route path="users" Component={AdminAllUsers}/>
                     <Route path="project" Component={AdminProjects}/>
+                    <Route path="totaltime" Component={AdminTotalTime}/>
                 </Routes>
             </AdminPanel>
 

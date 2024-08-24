@@ -462,6 +462,51 @@ app.post("/SubTaskPerUser",(req,res)=>{
   
 })
 
+app.post("/userSubtaskperid",(req,res)=>{
+    let tokenUser = req.body.tokenjson
+   const jwtTokenUser = jwt.verify(tokenUser,secret)
+    UserSubTask.find({"userdata.email":jwtTokenUser.email,projectdetail:req.body.projectid,idofsubtask:req.body.subtaskid}).then(result=>{
+        // console.log("465465  465 465",result)
+        res.send(result)
+    })
+})
+
+app.post("/addTimespend",(req,res)=>{
+    // UserSubTask.findByIdAndUpdate({idofsubtask:req.body.idofsubtask},{$set:{timespend:req.body.projectName,
+    //     description:req.body.description,startDate:req.body.startdate,endDate:req.body.enddate,
+    //     subTask:req.body.subtaskarray}})
+    UserSubTask.updateOne({_id:req.body.id},{$push:{timespend:req.body.object}}).then(result=>{
+       console.log("addTimespend",result)
+        res.send(result)
+    })
+})
+
+app.post("/startTimespend",(req,res)=>{
+    let index =req.body.index
+    console.log("starrtTimespend object",req.body.object)
+    UserSubTask.updateOne({_id:req.body.id},{$set:{[`timespend.${index}`]:req.body.object}}).then(result=>{
+        if(result.acknowledged){
+            UserSubTask.find({_id:req.body.id}).then(result=>{
+                res.send(result)
+            }).catch(err=>console.log("error in starttimespen after acknowledge",err))
+        }
+       
+    }).catch(err=>console.log("error in starttimespend",err))
+})
+
+app.post("/stopTimespend",(req,res)=>{
+    let index =req.body.index
+    console.log("stopTimespend object",req.body.object)
+    UserSubTask.updateOne({_id:req.body.id},{$set:{[`timespend.${index}`]:req.body.object}}).then(result=>{
+        if(result.acknowledged){
+            UserSubTask.find({_id:req.body.id}).then(result=>{
+                res.send(result)
+            }).catch(err=>console.log("error in starttimespen after acknowledge",err))
+        }
+       
+    }).catch(err=>console.log("error in starttimespend",err))
+})
+
 
 app.listen(5000,()=>console.log("server is listening to the port"));
 

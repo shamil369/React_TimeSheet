@@ -40,8 +40,8 @@ function App() {
     <Route  path="/timepage/completed" Component={CompletedTaskPage} />
     <Route  path="/timepage/myProjects" Component={MyProjectsPage} />
     <Route  path="/admin/*" Component={AdminPage} >
-      <Route path="edit" Component={AdminEdit}/>
-      <Route path="" Component={AdminMain}/>
+      {/* <Route path="edit" Component={AdminEdit}/>
+      <Route path="" Component={AdminMain}/> */}
     
                         
                         

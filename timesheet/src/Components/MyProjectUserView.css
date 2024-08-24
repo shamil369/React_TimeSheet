@@ -24,26 +24,5 @@
         font-size:x-large;   
     }
 
-.grey {
-    background: rgb(213, 211, 211);
-}
 
-table  {
-    background: rgb(213, 211, 211);
-}
 
-/* .table {
-
-    --bs-table-bg: red;
-} */
-
-.table > thead {
-    background-color: blue;
-}
-
-thead {
-    border-color: inherit;
-    border-style: solid;
-    border-width: 5;
-    background: red;
-}

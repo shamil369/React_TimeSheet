@@ -13,6 +13,11 @@ export const sidebarData = [
         path:"/admin/project"
     },
     {
+        icon:UilFilePlusAlt,
+        heading:"Time Usage",
+        path:"/admin/totaltime"
+    },
+    {
         icon:UilCheckCircle,
         heading:"Completed Task",
         path:"/admin/completed"
