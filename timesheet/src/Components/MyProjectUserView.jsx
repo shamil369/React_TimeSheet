@@ -32,7 +32,7 @@ const {
     console.log("myprojectuserView", project)
     const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Saturday"]
     let date = new Date();
-    let currentDate = date.getDate() + "-"+date.getMonth()+1+"-"+date.getFullYear();
+    let currentDate = date.getDate() + "-"+(date.getMonth()+Number(1))+"-"+date.getFullYear();
     let day=days[date.getDay()]
     let starttime ="";
     console.log("datee",date)
@@ -40,9 +40,10 @@ const {
     console.log("stopwatchOffset",stopwatchOffset)
     stopwatchOffset.setSeconds(stopwatchOffset.getSeconds() + 300)
 
-    const addTimespend = (id,object)=>{
+    const addTimespend = (id,object,subtaskId)=>{
       axios.post("http://localhost:5000/addTimespend",{id,object},{withCredentials:true}).then(res=>{
         console.log("timespen axios",res.data)
+        getUserSubTask(project._id,subtaskId)
       })
 
     }
@@ -77,6 +78,9 @@ const {
       }).catch(err=>console.log("error in getusersubtask",err))
     }
 
+    useEffect(()=>{
+      project?.subTask[0]?.subTaskId && getUserSubTask(project._id,project.subTask[0]?.subTaskId)
+    },[])
     // useEffect(()=>{
     //   const tokenvalue =  localStorage.getItem("validToken")
     //   const tokenjson = JSON.parse(tokenvalue);
@@ -126,7 +130,7 @@ const {
                       >
                         { project && project.subTask.map((subtask,index)=>{
                           return (
-                          <Tab eventKey={subtask.subTaskId} title={subtask.subTaskName} onMouseDown={()=>getUserSubTask(project._id,subtask.subTaskId)}>
+                          <Tab eventKey={subtask.subTaskId} title={subtask.subTaskName} onMouseDown={()=>getUserSubTask(project._id,subtask.subTaskId)} className='bg-danger'>
                             <div >
                               <div>
                                 <div className='bg-light '>
@@ -139,7 +143,7 @@ const {
                                           <td><h4><span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span></h4></td>
                                           <td><button onClick={()=>
                                             // setArray([...Array,{date:currentDate,day:day,start:null,currentstart:null,end:"",tseconds:{sec:0,index:null}}])
-                                           Array.length>0 && addTimespend(Array[0]._id,{date:currentDate,day:day,start:null,currentstart:null,end:"",tseconds:{sec:0,index:null}})
+                                           Array.length>0 && addTimespend(Array[0]._id,{date:currentDate,day:day,start:null,currentstart:null,end:"",tseconds:{sec:0,index:null}},subtask.subTaskId)
                                           }>add</button></td>
                                         </tr>
                                       </thead>
@@ -183,11 +187,11 @@ const {
                                               <button onClick={()=>{pause();
                                                let datestart = new Date()
                                                let currentend = datestart.getHours()+":"+datestart.getMinutes()+":"+datestart.getSeconds()
-                                              
+                                              alert(obj.start)
                                               // Array[index]={date:currentDate,
                                               // day:day,start:obj.start,currentstart:obj.currentstart,end:new Date(),currentend,tseconds:{sec:totalSeconds,index:null}}
-                                              
-                                              let stopObject={date:currentDate,day:day,start:obj.start,currentstart:obj.currentstart,end:new Date(),currentend,tseconds:{sec:totalSeconds,index:null}}
+                                              var overallseconds = (datestart.getTime() - (new Date(obj.start)).getTime()) / 1000;
+                                              let stopObject={date:currentDate,day:day,start:obj.start,currentstart:obj.currentstart,end:new Date(),currentend,tseconds:{sec:overallseconds,index:null}}
                                               stopTimespend(Array[0]._id,index,stopObject)
                                               }}>stop</button>
                                               <button onClick={()=>{
@@ -219,12 +223,12 @@ const {
                         })
                        
 }
-                        <Tab eventKey="profile" title="Profile">
+                        {/* <Tab eventKey="profile" title="Profile">
                           Tab content for Profile
                         </Tab>
                         <Tab eventKey="contact" title="Contact" >
                           Tab content for Contact
-                        </Tab>
+                        </Tab> */}
                       </Tabs>
                   </div>
                 </div>
