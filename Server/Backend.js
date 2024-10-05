@@ -507,6 +507,18 @@ app.post("/stopTimespend",(req,res)=>{
     }).catch(err=>console.log("error in starttimespend",err))
 })
 
+app.post("/getuserSubTaskById",(req,res)=>{
+    // const jwtToken = jwt.verify(req.body.tokenjson,secrettwo);
+   // console.log("verified token request approval:",jwtToken)
+   // let email = jwtToken.email
+   console.log("getUserSubTask by project ID",req.body)
+   UserSubTask.find({projectdetail:req.body.projectId,idofsubtask:req.body.subTaskId,"userdata._id":req.body.userId}).then((userSubTaskData)=>{
+       res.send(userSubTaskData)
+   }).catch((err)=>{
+       res.send(`error from db getuserSubTask: ${err}`)
+   })
+})
+
 
 app.listen(5000,()=>console.log("server is listening to the port"));
 
